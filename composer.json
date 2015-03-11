@@ -1,23 +1,15 @@
 ﻿{
- "name": "jaumemule/mpwarfwk-standard-edition",
- "description": "Standard APP using MPWAR Framework",
+ "name": "jaumemule/mpwarfwk",
+ "description": "MPWAR Framework",
  "license": "Apache-2.0",
  "keywords": [],
  "homepage": "https://github.com/jaumemule/mpwarfwk",
  "type": "project",
- "repositories": [
- {
- "type": "vcs",
- "url": "https://github.com/jaumemule/mpwarfwk"
- }
- ],
  "require": {
- "php": ">=5.3.2",
+ "php": ">=5.3.2"
  },
  "minimum-stability": "dev",
  "autoload": {
- "psr-4": {
- "": "src/"
+ "psr-0": { "Mpwarfwk\\": "src/" }
  }
- }
-}
+} 
