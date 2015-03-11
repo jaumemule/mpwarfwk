@@ -1,10 +1,15 @@
 <?php
 
-namespace jaumemf\mpwarfwk\src;
+namespace jaumemule\mpwarfwk\src\Mpwarfwk\Component;
 
 class Bootstrap{
+
 	public function __construct(){
-		echo "Hello World";
+		echo "Bootstrapped - ";
+	}
+
+	public function execute(){
+		
 	}
 }
 
