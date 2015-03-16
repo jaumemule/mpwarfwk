@@ -13,13 +13,11 @@ class Bootstrap{
 		echo "Boostraped"; 
 	}
 
-	public function execute($uri){
+	public function execute(){
 		echo " in ". $this->env . " environment - ";
-		$Router 			= new Router($uri);
+		$Router 			= new Router();
 		$ControllerUri 		= $Router->getRoute();
-
 		$Controller 		= new $ControllerUri();
-		$Controller->build();
 
 	}
 }
