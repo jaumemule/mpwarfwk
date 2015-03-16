@@ -52,9 +52,5 @@ class Request{
 			$this->cookie->$key = $value;
 		}
 	}
-
-	public function getRequested(){
-		return $this;
-	}
 }
 

@@ -7,7 +7,7 @@ class Bootstrap{
 	protected $env;
 	protected $debug;
 
-	public function __construct($env, $debug){
+	public function __construct($env = 'prod', $debug = false){
 		$this->env 		= $env;
 		$this->debug 	= $debug;
 		echo "Boostraped"; 
@@ -18,10 +18,7 @@ class Bootstrap{
 		$Router 			= new Router($uri);
 		$ControllerUri 		= $Router->getRoute();
 
-		$data 				= new Request();
-		$requestedElements	= $data->getRequested();
-
-		$Controller 		= new $ControllerUri($requestedElements);
+		$Controller 		= new $ControllerUri();
 		$Controller->build();
 
 	}
