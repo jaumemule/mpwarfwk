@@ -8,7 +8,7 @@
  "require": {
  "php": ">=5.3.2" ,
  "twig/twig": "1.18.0" ,
- "smart/core": "0.1.0"
+"abhi1693/yii2-sms": "1.0.0"
  },
  "minimum-stability": "dev",
  "autoload": {
