@@ -6,8 +6,9 @@
  "homepage": "https://github.com/jaumemule/mpwarfwk",
  "type": "project",
  "require": {
- "php": ">=5.3.2" ,
- "twig/twig": "1.18.0"  },
+	 "php": ">=5.3.2" ,
+	 "smarty/smarty": "3.1.11"
+ },
  "minimum-stability": "dev",
  "autoload": {
  "psr-0": { "Mpwarfwk\\": "src/" }
