@@ -6,7 +6,7 @@ class Response {
 
     protected $content;
     protected $status;
-
+    public $statusCode;
     const HTTP_CONTINUE = 100;
     const HTTP_SWITCHING_PROTOCOLS = 101;
     const HTTP_PROCESSING = 102;            // RFC2518
@@ -131,19 +131,16 @@ class Response {
         511 => 'Network Authentication Required',                             // RFC6585
     );
 
-    public function __construct($content, $statusCode = 200)
-    {
+    public function __construct($content, $statusCode = 200){
 
     	$this->$statusCode 	= $statusCode;
-        $this->statusText 	= isset(self::$statusTexts[$code]) ? self::$statusTexts[$code] : '';
+        $this->statusText 	= isset(self::$statusTexts[$statusCode]) ? self::$statusTexts[$statusCode] : '';
         $this->content 		= $content;
 
     }
 
-    public function send()
-    {
-        if ($this->statusCode != 200)
-        {
+    public function send(){
+        if ($this->statusCode != 200){
              echo $this->statusText;
         }
 
