@@ -1,56 +1,47 @@
 <?php
 
 namespace Mpwarfwk\Component;
+use \stdClass;
 
 class Request{
 
-	public 		$request;
-	private 	$data;
+	private 	$request;
+	public 		$data;
 
-	public function __construct(){
 
-		$this->request = array(
-			'GET' 		=> $_GET ,
-			'POST' 		=> $_POST ,
-			'SERVER' 	=> $_SERVER ,
-			'FILES' 	=> $_FILES ,
+	public function __construct(Session $session){
+
+		$this->parseRequestType(
+
+			array(
+				'_get' 		=> $_GET ,
+				'_post' 	=> $_POST ,
+				'_server' 	=> $_SERVER ,
+				'_file' 	=> $_FILES ,
+				'_cookie' 	=> $_COOKIE ,
+				'_session' 	=> $session 
+				)
 			);
 
-		$this->parseRequestType();
-		$this->method 		= $_SERVER['REQUEST_METHOD'];
-		$this->request_uri  = $_SERVER['REQUEST_URI'];
+		$_GET = $_POST = $_COOKIE = $_SERVER = array();
 
-		if(!@$_SERVER){
-			$this->fetchServer();
-		}
-
-		if(@$_COOKIES){
-			$this->fetchCookies();
-		}
 	}
 
-	private function parseRequestType(){
+	private function parseRequestType($ARRAY){
 
-		foreach ($this->request as $key => $value) {
-			foreach ($value as $key => $value) {
-				$this->$key = $value;
+		foreach ($ARRAY as $keyReq => $valueReq) {
+
+			$this->$keyReq = new \stdClass();
+
+			foreach ($valueReq as $key => $value) {
+
+				if(!empty($value)){
+					$this->$keyReq->$key = $value;
+
+				}
 			}
 		}
 	}
 
-	private function fetchServer(){
-
-		foreach ($_SERVER as $key => $value) {
-			$this->server->$key = $value;
-		}
-		
-	}
-
-	private function fetchCookies(){
-
-		foreach ($_COOKIES as $key => $value) {
-			$this->cookie->$key = $value;
-		}
-	}
 }
 

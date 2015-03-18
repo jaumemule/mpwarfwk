@@ -8,9 +8,10 @@ class Router{
 	protected $controllerUri;
 	const  	  CONTROLLER_NAMESPACE = 'Controllers';
 
-	public function __construct(){
+	public function __construct(Request $request){
 
-		$specialChar = explode("/?", $_SERVER["REQUEST_URI"]);
+
+		$specialChar = explode("/?", $request->_server->REQUEST_URI);
 		$this->uri = trim($specialChar[0], "/");
 		
 		echo " routing to ".$this->uri; 
@@ -20,7 +21,7 @@ class Router{
 	public function getRoute(){
 		foreach (json_decode(file_get_contents('../src/Config/controllers.json'), true) as $uri => $value) {
 			if (@$uri == $this->uri) {
-				return self::CONTROLLER_NAMESPACE."\\".$value["path"]."\\".$value["controller"];
+				return new Route(self::CONTROLLER_NAMESPACE."\\".$value["path"]."\\".$value["controller"], "ActionMain");
 			}
 				//return "Controllers\\404";
 
