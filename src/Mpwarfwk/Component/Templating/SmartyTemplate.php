@@ -1,5 +1,5 @@
 <?php
-namespace Mpwarfwk\Component;
+namespace Mpwarfwk\Component\Templating;
 use Smarty;
 
 final class SmartyTemplate implements Templating{

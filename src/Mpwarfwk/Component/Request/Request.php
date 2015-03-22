@@ -1,7 +1,9 @@
 <?php
 
-namespace Mpwarfwk\Component;
+namespace Mpwarfwk\Component\Request;
 use \stdClass;
+
+use Mpwarfwk\Component\Session\Session;
 
 class Request{
 

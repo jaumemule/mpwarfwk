@@ -1,6 +1,5 @@
 <?php
-namespace Mpwarfwk\Component;
+namespace Mpwarfwk\Component\Templating;
 interface Templating{
 	public function render($template, $vars = null);
-    public function assignVariables($vars);
 }

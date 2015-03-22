@@ -1,6 +1,8 @@
 <?php
 
-namespace Mpwarfwk\Component;
+namespace Mpwarfwk\Component\Routing;
+
+use Mpwarfwk\Component\Request\Request; 
 
 class Router{
 
@@ -23,14 +25,9 @@ class Router{
 			if (@$uri == $this->uri) {
 				return new Route(self::CONTROLLER_NAMESPACE."\\".$value["path"]."\\".$value["controller"], "ActionMain");
 			}
-				//return "Controllers\\404";
-
 		}
-
-		if(self::CONTROLLER_NAMESPACE."\\404\\404"){
-			self::CONTROLLER_NAMESPACE."\\404\\404";
-		}
-		return false;
+		echo "<br><br><h1>ERROR 404 . PATH NOT FOUND</h1><br><br>";
+		//throw new exception
 	}
 }
 

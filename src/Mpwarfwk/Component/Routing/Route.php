@@ -1,5 +1,5 @@
 <?php
-namespace Mpwarfwk\Component;
+namespace Mpwarfwk\Component\Routing;
 
 class Route
 {

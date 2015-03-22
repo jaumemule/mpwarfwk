@@ -2,6 +2,11 @@
 
 namespace Mpwarfwk\Component;
 
+use Mpwarfwk\Component\Request\Request;
+use Mpwarfwk\Component\Session\Session; 
+use Mpwarfwk\Component\Routing\Router; 
+use Mpwarfwk\Component\Routing\Route; 
+
 class Bootstrap{
 
 	protected $env;
