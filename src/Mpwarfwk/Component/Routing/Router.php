@@ -24,7 +24,7 @@ class Router{
 				return new Route(self::CONTROLLER_NAMESPACE."\\".$value["path"]."\\".$value["controller"], "ActionMain");
 			}
 		}
-
+		 echo "ERROR 404 . PATH NOT FOUND";
 		 throw new \Exception(' ERROR 404 . PATH NOT FOUND ');
 	}
 }
