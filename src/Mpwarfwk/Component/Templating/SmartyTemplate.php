@@ -8,15 +8,13 @@ final class SmartyTemplate implements Templating{
 
 	public function __construct(){
 		$this->view = new Smarty();
+		$this->view->caching = 0;
 	}
 
 	public function render($template, $vars = null){
-		return $this->view->fetch($template);
-	}
-    
-    public function assignVariables($vars){
     	foreach ($vars as $key => $value){
             $this->view->assign($key,$value);
         }
-    }
+		return $this->view->fetch($template);
+	}
 }

@@ -20,5 +20,9 @@ class Session{
         $_SESSION[$key] = $value;
 
 	}
+
+	public function destroy(){
+        session_destroy();
+	}
 }
 

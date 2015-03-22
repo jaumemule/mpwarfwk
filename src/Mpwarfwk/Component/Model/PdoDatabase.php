@@ -9,7 +9,8 @@ class PdoDatabase{
 
     public function __construct(DBconnection $DBconnection) {
 
-        $this->database = new PDO("mysql:dbname='".DBconnection::$database."';host='".DBconnection::$host."'', '".DBconnection::$username."', '".DBconnection::$password."'");
+        $this->database = new PDO('mysql:dbname='.DBconnection::$database.';host='.DBconnection::$host.'', ''.DBconnection::$username.'', ''.DBconnection::$password.'');
+
         $this->database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->database->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
