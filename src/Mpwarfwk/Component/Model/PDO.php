@@ -9,7 +9,7 @@ class PdoDatabase {
 
     public function __construct() {
 
-        $this->database = new PDO('mysql:dbname=framework;host=localhost', 'root', 'strongpassword');
+        $this->database = new PDO('mysql:dbname=mpwarfwk;host=localhost', 'mpwarfwk', 'mpwarfwkPWD');
         $this->database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->database->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }

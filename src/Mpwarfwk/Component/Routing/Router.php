@@ -16,8 +16,6 @@ class Router{
 		$specialChar = explode("/?", $request->_server->REQUEST_URI);
 		$this->uri = trim($specialChar[0], "/");
 		
-		echo " routing to ".$this->uri; 
-
 	}
 
 	public function getRoute(){
@@ -27,7 +25,7 @@ class Router{
 			}
 		}
 
-		 throw new Exception(' ERROR 404 . PATH NOT FOUND ');
+		 throw new \Exception(' ERROR 404 . PATH NOT FOUND ');
 	}
 }
 

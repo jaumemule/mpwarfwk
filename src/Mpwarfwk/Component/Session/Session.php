@@ -16,7 +16,7 @@ class Session{
         return false;
 	}
 
-	public function setValue($key){
+	public function setValue($key, $value){
         $_SESSION[$key] = $value;
 
 	}

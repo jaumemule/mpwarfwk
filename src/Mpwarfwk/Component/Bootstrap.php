@@ -15,11 +15,9 @@ class Bootstrap{
 	public function __construct($env = 'prod', $debug = false){
 		$this->env 		= $env;
 		$this->debug 	= $debug;
-		echo "Boostraped"; 
 	}
 
 	public function execute(Request $Request){
-		echo " in ". $this->env . " environment - ";
 
 		$Router 			= new Router($Request);
 		$ControllerUri 		= $Router->getRoute($Request);

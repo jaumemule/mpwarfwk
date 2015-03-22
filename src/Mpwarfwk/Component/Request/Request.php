@@ -7,12 +7,12 @@ use Mpwarfwk\Component\Session\Session;
 
 class Request{
 
-	private 	$request;
+	public 	$request;
 	public 		$data;
 
 
 	public function __construct(Session $session){
-
+ 	$this->session = $session;
 		$this->parseRequestType(
 
 			array(
