@@ -54,7 +54,7 @@ Load all framework dependencies with your command line:
 
 ```zsh
 
-$ cd /www/framework
+$ cd /www/frameworks
 $ composer update
 
 ```
