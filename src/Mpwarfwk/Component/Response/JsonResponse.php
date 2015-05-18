@@ -19,6 +19,6 @@ class JsonResponse extends Response
             $this->content = array($this->content);
         }
 
-        echo json_encode($this->content);
+        return json_encode($this->content);
     }
 }
