@@ -50,6 +50,12 @@ class PdoDatabase{
         return $statement->execute();
     }
 
+    public function deleteFromFreeQuery($query) {
+
+        $statement = $this->database->prepare($query);
+        return $statement->execute();
+    }
+
     public function updateTable($query, $data) {
         
         $statement = $this->database->prepare($query);
@@ -58,4 +64,9 @@ class PdoDatabase{
         }
         return $statement->execute();
     }  
+
+    public function lastInsertID()
+    {
+        return $this->database->lastInsertId();
+    }
 }

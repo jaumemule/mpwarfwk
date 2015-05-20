@@ -3,6 +3,7 @@
 namespace Mpwarfwk\Component\Routing;
 
 use Mpwarfwk\Component\Request\Request; 
+use Mpwarfwk\Component\Response\Response; 
 
 class Router{
 
@@ -24,8 +25,8 @@ class Router{
 				return new Route(self::CONTROLLER_NAMESPACE."\\".$value["path"]."\\".$value["controller"], "ActionMain");
 			}
 		}
-		 echo "ERROR 404 . PATH NOT FOUND";
-		 throw new \Exception(' ERROR 404 . PATH NOT FOUND ');
+
+		return new Route("Controllers\\PathError\\PathError", "ActionMain");
 	}
 }
 

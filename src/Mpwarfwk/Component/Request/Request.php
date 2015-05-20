@@ -13,11 +13,49 @@ class Request{
 
 	public function __construct(Session $session){
  	$this->session = $session;
+
+
+	if ($_SERVER['REQUEST_METHOD'] == 'PUT'){
+	    parse_str(file_get_contents("php://input"), $_PUT);
+
+	    foreach ($_PUT as $key => $value)
+	    {
+	        unset($_PUT[$key]);
+
+	        $_PUT[str_replace('amp;', '', $key)] = $value;
+	    }
+
+	    $_REQUEST = array_merge($_REQUEST, $_PUT);
+	}
+	if ($_SERVER['REQUEST_METHOD'] == 'DELETE'){
+	    parse_str(file_get_contents("php://input"), $_DELETE);
+
+	    foreach ($_DELETE as $key => $value)
+	    {
+	        unset($_DELETE[$key]);
+
+	        $_DELETE[str_replace('amp;', '', $key)] = $value;
+	    }
+
+	    $_REQUEST = array_merge($_REQUEST, $_DELETE);
+	}
+ 	$delete = [];
+ 	if(@$_DELETE){
+ 		$delete = $_DELETE;
+ 	}
+
+ 	$put = [];
+ 	if(@$_PUT){
+ 		$put = $_PUT;
+ 	}
+
 		$this->parseRequestType(
 
 			array(
 				'_get' 		=> $_GET ,
 				'_post' 	=> $_POST ,
+				'_put' 		=> $put ,
+				'_delete' 	=> $delete ,
 				'_server' 	=> $_SERVER ,
 				'_file' 	=> $_FILES ,
 				'_cookie' 	=> $_COOKIE ,
@@ -29,7 +67,8 @@ class Request{
 
 	}
 
-	private function parseRequestType($ARRAY){
+	private function parseRequestType($ARRAY)
+	{
 
 		foreach ($ARRAY as $keyReq => $valueReq) {
 
