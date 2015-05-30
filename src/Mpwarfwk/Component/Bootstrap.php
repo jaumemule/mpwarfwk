@@ -4,6 +4,7 @@ namespace Mpwarfwk\Component;
 
 use Mpwarfwk\Component\Request\Request;
 use Mpwarfwk\Component\Session\Session; 
+use Mpwarfwk\Component\Session\Token; 
 use Mpwarfwk\Component\Routing\Router; 
 use Mpwarfwk\Component\Routing\Route; 
 
@@ -19,12 +20,21 @@ class Bootstrap{
 
 	public function execute(Request $Request){
 
-		$Router 			= new Router($Request);
-		$ControllerUri 		= $Router->getRoute($Request);
+		$token 				= new Token($Request);
+		$token 				= $token->validate();
 
-		$response = $this->executeController($ControllerUri, $Request);
+		if($token == true){
 
-        return $response;
+			$Router 			= new Router($Request);
+			$ControllerUri 		= $Router->getRoute($Request);
+
+			$response = $this->executeController($ControllerUri, $Request);
+
+	        return $response;
+			
+		}else{
+			die();
+		}
 
 	}
 
